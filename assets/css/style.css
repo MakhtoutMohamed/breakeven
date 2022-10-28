@@ -559,6 +559,16 @@ body.active { overflow: hidden; }
   margin-block: 25px 15px;
 }
 
+.blog-card .meta-item { column-gap: 5px; }
+
+.blog-card .meta-item-text { color: var(--sonic-silver); }
+
+.blog-card .h3 { --fs-2: 2.8rem; }
+
+.blog-card .btn-link {
+  font-size: var(--fs-4);
+  margin-block-start: 20px;
+}
 
 
 
@@ -566,10 +576,268 @@ body.active { overflow: hidden; }
   #FOOTER
 \*-----------------------------------*/
 
+.footer { color: var(--gunmetal); }
 
+.footer-top {
+  display: grid;
+  gap: 30px;
+  border-block: 1px solid var(--light-gray);
+}
 
+.footer-link {
+  font-size: var(--fs-4);
+  transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus) { color: #FC3328; }
+
+.footer-brand .footer-link:not(:last-of-type) { margin-block: 30px 15px; }
+
+.social-list {
+  display: flex;
+  gap: 15px;
+  margin-block-start: 25px;
+}
+
+.social-link {
+  font-size: 20px;
+  transition: var(--transition-1);
+}
+
+.social-link:is(:hover, :focus) { color: #FC3328; }
+
+.footer-list .footer-link { padding-block: 5px; }
+
+.footer-list-title { margin-block-end: 20px; }
+
+.copyright {
+  padding-block: 35px;
+  text-align: center;
+}
 
 
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
+
+/**
+* responsive 4 large than 575px screen
+*/
+
+@media (min-width: 575px) {
+  /**
+  * custom property
+  */
+
+  :root {
+    /** typography */
+    --fs-1: 5rem;
+  }
+
+  /**
+  * reused style
+  */
+
+  .container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /**
+  * hero
+  */
+
+  .hero-banner .w-100 { max-width: 100%; }
+
+  .hero .shape {
+    bottom: 0;
+    left: -50px;
+  }
+
+  /* service */
+
+  .service .grid-list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 25px;
+  }
+
+  /* project */
+
+  .project-list > * { min-width: 100%; }
+
+  /* footer */
+
+  .footer-top { grid-template-columns: 1fr 1fr; }
+
+}
+
+
+
+
+/**
+* responsive 4 large than 768px screen
+*/
+
+@media (min-width: 768px) {
+
+  /**
+  * reused style
+  */
+
+  .container { max-width: 720px; }
+
+  .grid-list { grid-template-columns: 1fr 1fr; }
+
+
+  /* hero */
+
+  .hero .container {
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+  }
+
+  /* service */
+
+  .service .title-wrapper > * {
+    max-width: calc(70% - 30%);
+    align-items: flex-start;
+  }
+
+  .service .section-text { margin-block: 0; }
+
+
+  /* about */
+
+  .about .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  /* projets */
+
+  .project-list > * {
+    min-width: calc(70% - 30%);
+    width: calc(70% - 30%);
+  }
+
+
+
+}
+
+
+
+/**
+* responsive 4 large than 992px screen
+*/
+
+@media (min-width: 992px) {
+   /**
+  * custom property
+  */
+
+  :root {
+    /** typography */
+    --fs-1: 6.5rem;
+
+  /**
+    * spacing
+  */
+
+  --section-padding: 120px;
+
+  }
+
+
+  /* reused style */
+
+  .container { max-width: 960px; }
+
+  .h2 { --fs-1: 5.5rem; }
+
+  .section-text { --fs-3: 2.4rem; }
+
+  .btn {
+    --padding: 10px 32px;
+    font-weight: var(--fw-500);
+  }
+
+  .btn-secondary { --padding: 14px 32px; }
+
+
+  /* footer */
+
+  .footer-top { grid-template-columns: 1fr 0.7fr 0.7fr 0.7fr; }
+
+
+}
+
+
+
+/**
+* responsive 4 large than 1200px screen
+*/
+
+@media (min-width: 1200px) {
+  /* custom property */
+
+  :root {
+
+    /* typography */
+    --fs-1: 8rem;
+  }
+
+  /* reused style */
+
+  .container { max-width: 1140px; }
+
+  .h2 { --fs-1: 7.2rem; }
+
+  .grid-list { grid-template-columns: repeat(3, 1fr); }
+
+  /*****
+  * header
+  **/
+
+  .nav-open-btn,
+  .navbar-title { display: none; }
+
+  .header .btn { display: block; }
+
+  .navbar,
+  .navbar.active {
+    all: unset;
+    margin-inline-start: auto;
+  }
+
+  .navbar-list { display: flex; }
+
+  .navbar-item { border: none; }
+
+  .navbar-link {
+    text-transform: uppercase;
+    font-weight: var(--fw-500);
+  }
+
+
+  /* service */
+
+  .service .grid-list { grid-template-columns: repeat(4, 1fr); }
+
+
+  /* project */
+
+  .project .title-wrapper > div { width: 75%; }
+
+  .project-list > * {
+    min-width: calc(33.33% - 40px);
+    width: calc(33.33% - 40px);
+  }
+
+  .project-list > *:is(:first-child, :nth-child(2)) {
+    width: calc(50% - 30%);
+  }
+
+
+
+}
